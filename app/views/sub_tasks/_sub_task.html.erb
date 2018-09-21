@@ -1,12 +1,11 @@
 <p>
-	<table>
-		<tr id = '<%= sub_task.id %>'>
-			<td> <%= sub_task.content %> </td>
-			<% if @task.user == current_user %>
-				<td><%= link_to "Destroy", task_sub_task_path(@task, sub_task.id), 
-				method: :delete, data: {confirm: "Are you sure?"}, remote: true%> </td>
-			<% end %>
-		</tr>
-	</table>
+	<ul>
+		<li id = '<%= sub_task.id %>'><%= sub_task.content %>
+			<small> 
+				<%= link_to "remove", task_sub_task_path(@task, sub_task.id), 
+					method: :delete, data: {confirm: "Are you sure?"}, remote: true%> 
+			</small>
+		</li>
+	</ul>
 	<p id = 'sub_task_id'></p>
 </p>

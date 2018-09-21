@@ -1,4 +1,6 @@
-<%= form_for([@task, @task.sub_tasks.build],remote: true) do |f| %>
-	<%= f.text_field :content, placeholder: "Create Sub Task" %>
-	<%= f.submit%>
+<%= form_for([@task, @task.sub_tasks.build],validate: true,remote: true) do |f| %>
+	<p>
+		<%= f.text_field :content, placeholder: "Create Sub Task" %> <br/> <br/>
+		<%= f.submit "Enter", class:'button_popup'%>
+	</p>
 <% end %>

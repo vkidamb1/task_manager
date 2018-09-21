@@ -14,8 +14,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    current_user.tasks.create!(tasks_params)
-    redirect_to tasks_path, notice: 'Task was successfully created'
+    #binding.pry
+    if params["task"]["name"].blank? || params["task"]["details"].blank?
+      redirect_to new_task_path, notice: 'Name or Details cannot be blank'
+    else
+      current_user.tasks.create!(tasks_params)
+      redirect_to tasks_path, notice: 'Task was successfully created'
+    end
   rescue StandardError => error
     puts error.inspect
   end

@@ -3,13 +3,19 @@
 		Edit Task
 	</h1>
 	<br/>
-	<div>
-	<%= form_for @task, url: {action: "update"} do |t| %>
-		Name: <%= t.text_field :name %><br/> <br/>
-		Details: <%= t.text_field :details %><br/> <br/>
-		Private: <%= t.radio_button(:access_control,'private') %>
-		Public: <%= t.radio_button(:access_control, 'public') %><br/> <br/>
+	<%= form_for @task, validate: true, url: {action: "update"} do |t| %>
+		<p>
+			Name: <br/>
+			<%= t.text_field :name %>
+		</p>
+		<p>
+			Details:  <br/>
+			<%= t.text_field :details %>
+		</p>
+		<p>
+			Private: <%= t.radio_button(:access_control,'private') %>
+			Public: <%= t.radio_button(:access_control, 'public', :checked => true) %>
+		</p>
 		<%= t.submit class:'button' %>
 	<%end%>
-	</div>
 </html>

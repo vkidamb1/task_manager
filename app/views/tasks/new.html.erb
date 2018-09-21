@@ -3,12 +3,19 @@
 		New Task Creation
 	</h1>
 	<br/>
-	<%= form_for :task, url: {action: "create"} do |t| %>
-		<label for="task_name">Name:</label> <%= t.text_field :name %><br/> <br/> 
-		Details: <%= t.text_field :details %><br/> <br/>
-		Private: <%= t.radio_button(:access_control,'private') %>
-		Public: <%= t.radio_button(:access_control, 'public', :checked => true) %>
-		<br/> <br/>
+	<%= form_for @task, validate: true, url: {action: "create"} do |t| %>
+		<p>
+			Name: <br/>
+			<%= t.text_field :name %>
+		</p>
+		<p>
+			Details:  <br/>
+			<%= t.text_field :details %>
+		</p>
+		<p>
+			Private: <%= t.radio_button(:access_control,'private') %>
+			Public: <%= t.radio_button(:access_control, 'public', :checked => true) %>
+		</p>
 		<%= t.submit class:'button' %>
 	<% end %>
 </html>

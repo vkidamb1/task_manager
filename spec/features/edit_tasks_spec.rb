@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "EditTasks", type: :feature do
+RSpec.feature 'EditTasks', type: :feature do
   feature 'Editing a task' do
     scenario 'Editing of task by signing up the user' do
       create_task
@@ -17,11 +17,11 @@ RSpec.feature "EditTasks", type: :feature do
     end
 
     def create_task
-   	  sign_up_with('valid@example.com', 'password')
+      sign_up_with('valid@example.com', 'password')
       visit new_task_path
       fill_in 'task_name', with: 'name'
       fill_in 'task_details', with: 'details'
-      click_button 'Save Task'
+      click_button 'Create Task'
       expect(page).to have_content('Task was successfully created')
     end
 

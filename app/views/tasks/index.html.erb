@@ -23,7 +23,7 @@
 						<td> <%= link_to "Show", task_path(task), action: "show"%> </td>
 						<% if task.user == current_user %>
 							<td> <%= link_to "Edit", edit_task_path(task)%> </td>
-							<td> <%= link_to "Destroy", task_path(task), method: :delete %> </td>
+							<td> <%= link_to "Remove", task_path(task), method: :delete,  data: {confirm: "Are you sure?"}%> </td>
 						<% end %>
 					<% end %>
 				</tr>

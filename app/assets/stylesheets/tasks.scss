@@ -14,8 +14,8 @@ table tr:nth-child(odd) {
    background-color: #fff;
 }
 table th {
-    background-color: black;
-    color: white;
+   /* background-color: white;
+    color: white; */
 }
 
 .spacing_between_links{
@@ -27,12 +27,12 @@ h1{
 }
 
 h2{
-	color: green;
+	color: red;
 }
 
 body {
     height: 100%;
-    background: -webkit-linear-gradient(40deg, #FFA500 10%, #EAECC6 100%);
+    background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #FFA500 100%);
 }
 
 .button {
@@ -50,4 +50,13 @@ body {
         background: #4169E1;
         color: white;
     }
+}
+
+.field_with_errors{
+    display: inline
+}
+
+.field_with_errors .message{
+    color: #D00;
+    padding-left: 5px;
 }

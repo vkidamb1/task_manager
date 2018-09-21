@@ -9,7 +9,7 @@ RSpec.feature 'CreateTasks', type: :feature do
       visit new_task_path
       fill_in 'task_name', with: 'name'
       fill_in 'task_details', with: 'details'
-      click_button 'Save Task'
+      click_button 'Create Task'
       expect(page).to have_content('Task was successfully created')
     end
 
