@@ -1,0 +1,4 @@
+<%= form_for([@task, @task.sub_tasks],remote: true) do |f| %>
+	<%= f.text_field :content, placeholder: "Edit Sub Task" %>
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,44 @@
+require 'pry'
+class TasksController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :find_task, except: %i[index create new]
+
+  def index
+    @tasks = Task.all
+  end
+
+  def show; end
+
+  def new
+    @task = current_user.tasks.build
+  end
+
+  def create
+    current_user.tasks.create!(tasks_params)
+    redirect_to tasks_path, notice: 'Task was successfully created'
+  rescue StandardError => error
+    puts error.inspect
+  end
+
+  def edit; end
+
+  def update
+    @task.update!(tasks_params)
+    redirect_to tasks_path, notice: 'Task was successfully updated'
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, notice: 'Task was successfully destroyed'
+  end
+
+  private
+
+  def find_task
+    @task = Task.find(params[:id])
+  end
+
+  def tasks_params
+    params.require(:task).permit(:id, :name, :details, :access_control)
+  end
+end

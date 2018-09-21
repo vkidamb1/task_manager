@@ -1,0 +1,19 @@
+<p>
+	<%# unless @task.sub_tasks.length == 0 %>
+	<!-- <table> -->
+		<tr id = '<%= @task.sub_tasks %>'>
+		 <!-- <tr> -->
+		 <%#binding.pry%>
+		 	<td> <% @task.sub_tasks %> </td>
+			<!-- <td class = 'destroy'> Destroy </td> -->
+			<!--<td><%#= link_to "Destroy", task_sub_task_path(@task, sub_task.id), 
+			method: :delete, data: {confirm: "Are you sure?"},  id: sub_task.id+"destroy_link", remote: true%> </td> -->
+			<!-- <td><%#= link_to "Edit Task",  edit_task_sub_task_path(@task, sub_task.id), id: "edit_link", remote: true %></td> -->
+			<% if @task.user == current_user %>
+				<td><% link_to "Destroy", task_sub_task_path(@task, @task.sub_tasks), 
+				method: :delete, data: {confirm: "Are you sure?"}, remote: true%> </td>
+			<% end %>
+		</tr>
+	<!-- </table> -->
+	<p id = 'sub_task_id'></p>
+</p>

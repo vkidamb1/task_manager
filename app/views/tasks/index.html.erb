@@ -1,0 +1,33 @@
+<%= link_to "Sign Up", new_user_registration_path,  class: "spacing_between_links" %>
+<%= link_to "Sign In", new_user_session_path, class: "spacing_between_links"%>
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %><br/>
+
+<br/><%= link_to "<button class = 'button'>Create New Task</button>".html_safe, new_task_path%>
+
+    <h1> TODO List </h1>
+    <table>
+    	<thead>
+			<tr>
+				<th> Task Name </th>
+				<th> Task Details </th>
+				<th> User Email </th>
+			</tr>
+	  	</thead>
+	  	<tbody>
+			<% @tasks.each do |task| %>
+				<tr>
+					<% unless task.access_control == "private" && task.user != current_user %>
+						<td> <%= task.name %></td>
+						<td> <%= task.details %></td>
+						<td> <%= task.user.email %></td>
+						<td> <%= link_to "Show", task_path(task), action: "show"%> </td>
+						<% if task.user == current_user %>
+							<td> <%= link_to "Edit", edit_task_path(task)%> </td>
+							<td> <%= link_to "Destroy", task_path(task), method: :delete %> </td>
+							<!-- <td class = 'destroy'> Destroy </td> -->
+						<% end %>
+					<% end %>
+				</tr>
+			<%end%>
+	  	</tbody>
+	</table>

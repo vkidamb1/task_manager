@@ -1,0 +1,35 @@
+<h1>
+ Task Details
+</h1>
+
+<table>
+	<tr>
+			<th> Name </th>
+			<th> Details </th>
+			<th> Mode </th>
+	</tr>
+			<td> <%= @task.name %></td>
+			<td> <%= @task.details %></td>
+			<td> <%= @task.access_control %></td>
+	</tr>
+</table>
+
+<h2> Sub Tasks List </h2>
+<% if @task.sub_tasks.length == 0 %>
+	<%= render "sub_tasks/sub_first_task" %>
+<%else %>
+	<%= render @task.sub_tasks %>
+<% end %>
+	<div id="form">
+		<%#= render "sub_tasks/form" %>
+		<% if @task.user == current_user %>
+			<%= link_to "Add Sub Task",  new_task_sub_task_path(@task), id: "new_link", remote: true %>
+		<% end %>
+	</div>
+
+<br/>
+<%= link_to "<button class = 'button'>Create New Task</button>".html_safe, new_task_path, controller: "tasks" %>
+<br/><br/>
+<%= link_to "Back", tasks_path %>
+<br/>
+<%#= link_to "Edit", edit_task_path(@task), controller: "tasks"%>
