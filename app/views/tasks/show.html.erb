@@ -20,12 +20,11 @@
 <%else %>
 	<%= render @task.sub_tasks %>
 <% end %>
-	<div id="form">
-		<%#= render "sub_tasks/form" %>
-		<% if @task.user == current_user %>
-			<%= link_to "Add Sub Task",  new_task_sub_task_path(@task), id: "new_link", remote: true %>
-		<% end %>
-	</div>
+<div id="form">
+	<% if @task.user == current_user %>
+		<%= link_to "Add Sub Task",  new_task_sub_task_path(@task), id: "new_link", remote: true %>
+	<% end %>
+</div>
 
 <br/>
 <%= link_to "<button class = 'button'>Create New Task</button>".html_safe, new_task_path, controller: "tasks" %>

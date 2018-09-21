@@ -16,18 +16,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-
-// $(document).ready(function(){
-// 	$('.destroy').on('click',function(){
-// 		if(confirm("Are you sure?")){
-// 			$.ajax({
-// 				url: '/tasks/2/sub_tasks/' + this.parentElement.id,
-// 				//url: '/tasks/' + this.parentElement.id,
-// 				type: 'DELETE',
-// 				success: function(r){
-// 				}
-// 			});
-// 		}
-// 	});
-// });

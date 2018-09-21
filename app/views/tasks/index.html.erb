@@ -24,7 +24,6 @@
 						<% if task.user == current_user %>
 							<td> <%= link_to "Edit", edit_task_path(task)%> </td>
 							<td> <%= link_to "Destroy", task_path(task), method: :delete %> </td>
-							<!-- <td class = 'destroy'> Destroy </td> -->
 						<% end %>
 					<% end %>
 				</tr>
