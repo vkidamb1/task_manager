@@ -1,24 +1,25 @@
-# README
+To Clone this repository:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Type in git clone https://github.com/vkidamb1/task_manager
 
-Things you may want to cover:
+Compiling Application:
 
-* Ruby version
+Navigate to inside of root path of the application i.e. task_manager(cd task_manager) in this case.
+Run gem install bundler if bundler is already not installed
+Run gem install
 
-* System dependencies
+To Run Application:
 
-* Configuration
+Navigate to inside of root path of the application i.e. task_manager(cd task_manager) in this case.
+Run rails s
 
-* Database creation
+To Run Specs:
 
-* Database initialization
+Navigate to inside of root path of the application i.e. command_line_runner(cd command_line_runner) in this case.
 
-* How to run the test suite
+Run rspec spec/
 
-* Services (job queues, cache servers, search engines, etc.)
+Details on the pages and its access positions:
 
-* Deployment instructions
-
-* ...
+List of tasks can be displayed Tasks can be viewed in the index page.
+Sub tasks can be created for the specific tasks in the Task show page.
