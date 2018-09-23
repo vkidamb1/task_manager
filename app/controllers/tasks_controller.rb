@@ -1,10 +1,9 @@
-require 'pry'
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :find_task, except: %i[index create new]
 
   def index
-    @tasks = Task.where("user_id= ? or access_control = ?",current_user.id,"public")
+    @tasks = Task.user_acess_list(current_user.id)
   end
 
   def show; end
@@ -14,7 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    if params["task"]["name"].blank? || params["task"]["details"].blank?
+    if params['task']['name'].blank? || params['task']['details'].blank?
       redirect_to new_task_path, notice: 'Name or Details cannot be blank'
     else
       current_user.tasks.create!(tasks_params)

@@ -30,6 +30,8 @@ group :test do
 end
 
 gem 'capybara', '>= 2.15'
+gem 'client_side_validations',
+    github: 'DavyJonesLocker/client_side_validations'
 gem 'devise'
 gem 'jquery-rails'
 gem 'pry-rails'
@@ -38,6 +40,4 @@ gem 'rspec-rails', '~> 3.7'
 gem 'rubocop'
 gem 'shoulda', '~> 3.5'
 gem 'shoulda-matchers', '~> 2.0'
-gem 'client_side_validations',
-	github: 'DavyJonesLocker/client_side_validations'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

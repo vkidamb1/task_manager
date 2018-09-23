@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # ClientSideValidations Initializer
 
 # Disabled validators
@@ -9,8 +10,8 @@
 
 # Uncomment the following block if you want each input field to have the validation messages attached.
 #
-#Note: client_side_validation requires the error to be encapsulated within
-#<label for="#{instance.send(:tag_id)}" class="message"></label>
+# Note: client_side_validation requires the error to be encapsulated within
+# <label for="#{instance.send(:tag_id)}" class="message"></label>
 
 ActionView::Base.field_error_proc = proc do |html_tag, instance|
   if html_tag =~ /^<label/
